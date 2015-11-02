@@ -12,6 +12,10 @@ var router = function( app )
     app.get( "/logout", mid.requiresLogin, controllers.Account.logout );
     app.get( "/maker", mid.requiresLogin, controllers.Domo.makerPage );
     app.post( "/maker", mid.requiresLogin, controllers.Domo.make );
+    
+    app.get( "/recent", mid.requiresLogin, controllers.Domo.recentPage );
+    //app.post( "/recent", mid.requiresLogin, controllers.Domo.recentPage );
+    
     app.get( "/", mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage );
 };
 

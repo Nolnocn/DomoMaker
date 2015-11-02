@@ -8,23 +8,14 @@ block body
     .navlink
       a(href="/logout") Log out
     .navlink
-      a(href="/recent") Newest Domos
+      a(href="/maker") Back
   section#makeDomo
-    form#domoForm(class="domoForm", name="domoForm", action="/maker", method="POST")
-      label(for="name") Name: 
-      input#domoName(type="text", name="name", placeholder="Domo Name")
-      label(for="age") Age: 
-      input#domoAge(type="text", name="age", placeholder="Domo Age")
-      label(for="level") Level: 
-      input#domoAge(type="text", name="level", placeholder="Domo Level")
-      input(type="hidden", name="_csrf", value="#{csrfToken}")
-      a#makeDomoSubmit(class="makeDomoSubmit", href="#") Make Domo
   section#domos
-    if !domos || domos.length == 0
+    if !newestDomos || newestDomos.length == 0
       div.domo
         h3.emptyDomo No Domos yet
     else
-      each val in domos
+      each val in newestDomos
          div.domo
            img( class="domoFace", src="/assets/img/domoface.jpeg", alt="domo face" )
            h3.domoName Name: #{ val.name }
